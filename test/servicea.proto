@@ -1,0 +1,13 @@
+syntax = "proto3"; // 指定proto版本
+
+package test;
+
+
+service ServiceA {
+    rpc Call (Atest) returns (Atest) {
+    }
+}
+
+message Atest {
+    string name = 1;
+}

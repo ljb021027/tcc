@@ -1,0 +1,15 @@
+syntax = "proto3"; // 指定proto版本
+
+import "google/protobuf/empty.proto";
+import "base.proto";
+
+package tcc;
+
+service Rm {
+    rpc Prepare (Xid) returns (google.protobuf.Empty) {
+    }
+    rpc Commit (Branch) returns (google.protobuf.Empty) {
+    }
+    rpc Cancel (Branch) returns (google.protobuf.Empty) {
+    }
+}

@@ -1,0 +1,20 @@
+syntax = "proto3"; // 指定proto版本
+
+import "google/protobuf/empty.proto";
+import "base.proto";
+
+package tcc;
+
+service Tc {
+    rpc NewGlobalTransaction (google.protobuf.Empty) returns (Xid) {
+    }
+
+    rpc RegisterBranch (Branch) returns (Report) {
+    }
+
+    rpc Commit (Xid) returns (Report) {
+    }
+
+    rpc RollBack (Xid) returns (Report) {
+    }
+}

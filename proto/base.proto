@@ -1,0 +1,39 @@
+syntax = "proto3"; // 指定proto版本
+
+import "google/protobuf/empty.proto";
+
+package tcc;
+
+message Branch {
+    Xid xid = 1;
+    string branch_id = 2;
+    //rm信息，可以通过这个rpc调用资源
+    RmResource rm_resource = 3;
+    //参数
+    Param param = 4;
+}
+
+//RmResource 可以定位到service
+message RmResource {
+    string uri = 1;
+}
+message Param {
+    map<string, string> value = 1;
+}
+
+message Xid {
+    string sequences = 1;
+}
+
+message Report {
+    ReportStatus report_status = 1;
+}
+
+enum ReportStatus {
+    _ = 0;
+    //成功，可以继续
+    SUCCESS = 1;
+    //失败，需要中止
+    FAIL = 2;
+
+}

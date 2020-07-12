@@ -1,0 +1,66 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "tc.proto",
+    "version": "version not set"
+  },
+  "schemes": [
+    "http",
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "tccParam": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "tccReport": {
+      "type": "object",
+      "properties": {
+        "report_status": {
+          "$ref": "#/definitions/tccReportStatus"
+        }
+      }
+    },
+    "tccReportStatus": {
+      "type": "string",
+      "enum": [
+        "_",
+        "SUCCESS",
+        "FAIL"
+      ],
+      "default": "_",
+      "title": "- SUCCESS: 成功，可以继续\n - FAIL: 失败，需要中止"
+    },
+    "tccRmResource": {
+      "type": "object",
+      "properties": {
+        "uri": {
+          "type": "string"
+        }
+      },
+      "title": "RmResource 可以定位到service"
+    },
+    "tccXid": {
+      "type": "object",
+      "properties": {
+        "sequences": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
